@@ -1,6 +1,7 @@
 import { useEffect } from "react";
+import jwt_decode from "jwt-decode";
+import axios from "axios";
 
-  
 const AuthReducer = (state, action) => {
     switch (action.type) {
       case "LOGIN_START":
@@ -10,19 +11,7 @@ const AuthReducer = (state, action) => {
           error: false,
         };
       case "LOGIN_SUCCESS":
-        // let decode = null;
-        // if(localStorage.token)
-        // {
-        //     decode = jwt_decode(localStorage.token);
-            
-        // }
-        // useEffect(()=>{
-        //     const fetchUser  = async () => {
-        //         const res = await axios.get(`https://backendwhistler.herokuapp.com/api/users?userID=${decode?.id}`)
-        //     }
-        //     fetchUser();    
-        // },[]);
-        console.log(action.payload);
+
         return {
           user: action.payload,
           isFetching: false,
