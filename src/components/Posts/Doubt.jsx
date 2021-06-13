@@ -1,13 +1,14 @@
 import { useContext, useRef, useState, useEffect } from "react";
 import { AuthContext } from "../../context/auth";
 import axios from "axios";
+import Post from "./Post";
 
 function Doubt({doubt}) {
     const {user} = useContext(AuthContext);
     const [doubtUser, setDoubtUser] = useState(null);
     const [solveClick, setSolveClick] = useState(false);
     const [escalate, setEscalate] = useState(false);
-    const answer  = userRef();
+    const answer  = useRef();
     useEffect(() => {
         const fetchUser = async() => {
             const res = await axios.get("/auth/user/"+doubt?.userId);
@@ -16,9 +17,39 @@ function Doubt({doubt}) {
         fetchUser();
     },[doubt?.userId]);
 
-    const submitHandler(()=> {
+    const solveHandler = async() => {
+        try{
+            if(solveClick===false)
+            {
+                let accepterId = {
+                    id : doubt._id
+                }
+                setSolveClick(!solveClick);
+                const res = await axios.put(`/doubt/accepted/${user._id}`,accepterId)
+                console.log(solveClick);
+                console.log(res);
+                
+            }
+        }catch(err)
+        {
+            console.log(err);
+        }
+    }
+    const submitHandler = async(e) => {
         e.preventDefault();
-    })
+        const newAns = {
+            userId : user._id,
+            desc : answer.current.value,
+            isAnswer: true
+        }
+        try{
+            const res = await axios.post(`/comment/create/${doubt._id}`, newAns)
+            console.log(res);
+            window.location.reload();
+        }catch(err){
+            console.log(err);
+        }
+    }
     const AnswerForm = () => {
         return (
             <>
@@ -44,8 +75,11 @@ function Doubt({doubt}) {
                 <h3> {doubt.title} </h3>
             </div>
             <div>{doubt.desc} 
-                <button onClick={()=>setSolveClick(!solveClick)}>Solve</button>
-                { solveClick && 
+                <button onClick={solveHandler}>Solve</button>
+         
+                {
+                   
+                     solveClick && 
                     <AnswerForm />
                 }
             </div>
