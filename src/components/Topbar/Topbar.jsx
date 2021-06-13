@@ -1,17 +1,24 @@
-import React from 'react';
-
-function Topbar({user}) {
-
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/auth';
+import { Link } from "react-router-dom";
+function Topbar(props) {
+   
+    const {user} = useContext(AuthContext);
     const StudentBar = () => {
         return (
             <>
                 <ul>
-                    <li>
-                        Home
-                    </li>
-                    <li>
-                        Raise Doubt
-                    </li>
+                    <Link to="/">
+                        <li>
+                            Home
+                        </li>
+                    </Link>
+                    <Link to="/student">
+                        <li > 
+                            Raise Doubt
+                        </li>
+                    </Link>
+                   
                 </ul>
             </>
         )
@@ -43,10 +50,7 @@ function Topbar({user}) {
                         Home
                     </li>
                     <li>
-                        Raise Doubt
-                    </li>
-                    <li>
-                        Solve Doubt
+                        Dashboard
                     </li>
                 </ul>
             </>
@@ -60,7 +64,7 @@ function Topbar({user}) {
                         Coding Ninja
                     </div>
                     <div className="leftSideList">
-                        {() => {
+                        {(() => {
                             switch(user.usertype)
                             {
                                 case "STUDENT" : return <StudentBar />;
@@ -68,12 +72,14 @@ function Topbar({user}) {
                                 case "TA" : return <TABar />;
                             }
                         }
-
+                        )()
                         }
                     </div>
                 </div>
                 <div className="rightSide">
-
+                        <button className="topLogout">
+                            Logout
+                        </button>
                 </div>
             </div>
         </div>

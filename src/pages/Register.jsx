@@ -8,6 +8,7 @@ export default function Register() {
   const email = useRef();
   const password = useRef();
   const passwordAgain = useRef();
+  const usertype = useRef();
   const history = useHistory();
 
   const handleClick = async (e) => {
@@ -19,8 +20,10 @@ export default function Register() {
         username: username.current.value,
         email: email.current.value,
         password: password.current.value,
+        usertype: usertype.current.value
       };
       try {
+        console.log(user);
         await axios.post("/auth/register", user);
         history.push("/login");
       } catch (err) {
@@ -68,6 +71,12 @@ export default function Register() {
               className="loginInput"
               type="password"
             />
+
+            <select ref = {usertype} name="selectList" id="selectList">
+              <option value="STUDENT">Student</option>
+              <option value="TA">Teacher Assistant</option>
+              <option value="TEACHER">Teacher</option>
+            </select>
             <button className="loginButton" type="submit">
               Sign Up
             </button>

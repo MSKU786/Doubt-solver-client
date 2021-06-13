@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import jwt_decode from "jwt-decode";
-import axios from "axios";
+
 
 const AuthReducer = (state, action) => {
     switch (action.type) {
