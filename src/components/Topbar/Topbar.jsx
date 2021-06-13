@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 function Topbar(props) {
    
     const {user} = useContext(AuthContext);
+    const logoutHandler = () => {
+        localStorage.clear();
+        window.location.reload();
+    }
     const StudentBar = () => {
         return (
             <>
@@ -78,7 +82,7 @@ function Topbar(props) {
                     </div>
                 </div>
                 <div className="rightSide">
-                        <button className="topLogout">
+                        <button className="topLogout" onClick={logoutHandler}>
                             Logout
                         </button>
                 </div>
