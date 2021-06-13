@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CreateDoubt from "./pages/CreateDoubt";
+import SolveDoubt from "./pages/SolveDoubt";
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,6 +26,9 @@ export default function App() {
         </Route>
         <Route path="/student">
           { <CreateDoubt />}
+        </Route>
+        <Route path="/solve">
+          { <SolveDoubt />}
         </Route>
       </Switch>
     </Router>

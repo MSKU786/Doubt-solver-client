@@ -5,7 +5,8 @@ import TeacherAssistance from '../components/User/TeacherAssistance';
 function SolveDoubt(props) {
     return (
         <div>
-            
+            <Topbar />
+            <TeacherAssistance />
         </div>
     );
 }
