@@ -7,7 +7,7 @@ function Doubt({doubt}) {
     const {user} = useContext(AuthContext);
     const [doubtUser, setDoubtUser] = useState(null);
     const [solveClick, setSolveClick] = useState(false);
-    const [escalate, setEscalate] = useState(false);
+    
     const answer  = useRef();
     useEffect(() => {
         const fetchUser = async() => {
@@ -30,6 +30,19 @@ function Doubt({doubt}) {
                 console.log(res);
                 
             }
+        }catch(err)
+        {
+            console.log(err);
+        }
+    }
+
+    const handleEscalate = async() => {
+        try{
+            let accepterId = {
+                id : doubt._id
+            }
+            setSolveClick(!solveClick);
+            const res = await axios.put(`/doubt/escalated/${user._id}`,accepterId)
         }catch(err)
         {
             console.log(err);
@@ -63,6 +76,7 @@ function Doubt({doubt}) {
               Answer
             </button>
           </form>
+          <button onClick={handleEscalate}> Escalate</button>
           </>
         )
     }

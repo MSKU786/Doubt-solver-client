@@ -51,12 +51,16 @@ function Topbar(props) {
         return (
             <>
                 <ul>
-                    <li>
-                        Home
-                    </li>
-                    <li>
-                        Dashboard
-                    </li>
+                    <Link to="/">
+                        <li>
+                            Home
+                        </li>
+                    </Link>
+                    <Link to="/dashboard">
+                        <li>
+                            Dashboard
+                        </li>
+                    </Link>
                 </ul>
             </>
         )

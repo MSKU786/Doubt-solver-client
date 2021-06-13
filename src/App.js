@@ -4,12 +4,14 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CreateDoubt from "./pages/CreateDoubt";
 import SolveDoubt from "./pages/SolveDoubt";
+import Dashboard from "./pages/Dashboard";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
+
 
 
 export default function App() {
@@ -29,6 +31,9 @@ export default function App() {
         </Route>
         <Route path="/solve">
           { <SolveDoubt />}
+        </Route>
+        <Route path="/dashboard">
+          { <Dashboard />}
         </Route>
       </Switch>
     </Router>
