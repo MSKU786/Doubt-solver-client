@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
+import "./homeposts.css";
+import { format } from "timeago.js"
 
 function Comment({comment}) {
     const [content, setContent] = useState(null);
@@ -17,7 +18,6 @@ function Comment({comment}) {
                     const fetchUser = async () => {
                         const commenter = await axios.get("/auth/user/"+res.data.userId);
                         setCommentUser(commenter.data);
-                        console.log(commenter);
                     }
                     fetchUser();
                 }
@@ -31,11 +31,13 @@ function Comment({comment}) {
 
    
     return (
-        <div>
-                <h4>---</h4>
-                <h2>{commentUser?.username}</h2>
-                <h4>-------</h4>
-                <div>
+        <div className="commentSection">
+                <div className="commentTopbar">
+                    <span className="userName">{commentUser?.username}</span>
+                    <span className="postDate">{format(comment.createdAt)}</span>
+                </div>
+
+                <div className="commentMain">
                     {
                         content
                     }

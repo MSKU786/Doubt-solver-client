@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Post from "./Post"
+import "./homeposts.css"
+
 function HomePosts(props) {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
@@ -13,7 +15,7 @@ function HomePosts(props) {
  
     
     return (
-        <div>
+        <div className="mainContainer">
             {posts.map((p) => (
                 <Post key={p._id} post={p} />
             ))}

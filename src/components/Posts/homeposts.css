@@ -1,0 +1,76 @@
+.mainContainer {
+  display: flex;
+  margin-top: 60px;
+  padding: 20px 50px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.postWrapper {
+  display: flex;
+  width: 90%;
+  border: 2px solid green;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.postTopbar {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid rgb(83, 16, 192);
+  align-items: center;
+  height: 50px;
+}
+
+.postTitle {
+  display: block;
+  width: 95%;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.postDescription {
+  display: block;
+  width: 95%;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.postComments {
+  display: flex;
+  width: 95%;
+  justify-content: center;
+  align-items: center;
+}
+
+.commentSection {
+  display: flex;
+  width: 98%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.commentTopbar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
+  padding: 3px 20px;
+}
+
+.userName {
+  display: inline-block;
+  padding: 5px;
+}
+
+.commentMain {
+  display: flex;
+  width: 100%;
+}

@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/auth";
 import axios from "axios";
-
-
+import "./homeposts.css";
 import Comment from "./Comment"
+import { format } from "timeago.js"
 
 function Post({post}) {
     const { user } = useContext(AuthContext);
@@ -37,18 +37,26 @@ function Post({post}) {
 
 
     return (
-        <div>
-            <div>
-                {postUser?.username}
+        <div className="postWrapper">
+            <div className="postTopbar">
+                <span className="userName">{postUser?.username}</span>
+                <span className="postDate">{format(post.createdAt)}</span>
             </div>
-            <div>
+            <div className="postTitle">
+                <h2>Title</h2>
                 {post.title}
+            </div >
+            <div className="postDescription">
+                <h3>Description</h3>
+                {post.desc}
             </div>
-            <div>{post.desc}</div>
-            <div>
+            <div className = "postComments">
                 {post.comments.map((c)=> (
                      <Comment key={c._id} comment={c} />
                 ))}
+                    { user.usertype==="STUDENT" &&
+                    (
+                    <>
                     <h5>
                         Comments
                     </h5>
@@ -66,7 +74,8 @@ function Post({post}) {
                         Comment
                         </button>
                     </form>
-                <h2>----------------------</h2>
+                    </>
+                    )}
             </div>
         </div>
     );

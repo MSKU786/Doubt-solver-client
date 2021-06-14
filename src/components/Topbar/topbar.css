@@ -3,12 +3,65 @@
     display:  flex;
     position: fixed;
     top: 0;
-    width: 100vw;
-    height: 60px;
+    width: 98vw;
+    height: 55px;
     padding: 5px 50px;
     justify-content: space-between;
     border: 2px solid green;    
 }
 
 
+.leftSide{
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.leftSideLogo{
+    display: flex;
+    width: 40%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.leftSideList{
+    display: flex;
+    width: 60%;
+
+}
+
+.rightSide{
+    display: flex;
+    justify-content: center;
+    border: 2px solid yellow;
+    margin-right: 50px;
+}
+
+.topLogout{
+    padding: 10px 30px;
+    font-size: 18px;
+    border: none;
+
+}
+
+.topbarContent{
+    display: flex;
+    height: 100%;
+    width: 90%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.topbarLeftContent{
+    display: inline-block;
+    font-size: 18px;
+}
+
+.topbarRightContent{
+    display: inline-block;
+    font-size: 18px;
+}
 

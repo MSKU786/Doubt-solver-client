@@ -67,7 +67,7 @@ function Topbar(props) {
         )
     }
     return (
-        <div>
+   
             <div className="topContainer">
                 <div className="leftSide">
                     <div className="leftSideLogo">
@@ -92,7 +92,7 @@ function Topbar(props) {
                         </button>
                 </div>
             </div>
-        </div>
+        
     );
 }
 
