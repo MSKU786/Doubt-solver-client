@@ -3,10 +3,12 @@ import { useContext, useRef } from "react";
 import { loginCall } from "../apiCalls";
 import { AuthContext } from "../context/auth";
 import { CircularProgress } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
 const email = useRef();
 const password = useRef();
+const history = useHistory();
 const { isFetching, dispatch } = useContext(AuthContext);
 
   const handleClick = (e) => {
@@ -15,6 +17,7 @@ const { isFetching, dispatch } = useContext(AuthContext);
       { email: email.current.value, password: password.current.value },
       dispatch
     );
+    history.push("/")
   };
 
   return (
