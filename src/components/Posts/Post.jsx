@@ -8,6 +8,7 @@ import Comment from "./Comment"
 
 function Post({post}) {
     const { user } = useContext(AuthContext);
+    //console.log("this is a comment", comment);
     const desc = useRef();
     const commentHandler = async (e) => {
       e.preventDefault();
@@ -18,7 +19,7 @@ function Post({post}) {
       };
       
       try {
-        console.log(newComment);
+        //console.log(newComment);
         const res = await axios.post(`/comment/create/${post._id}`, newComment);
         console.log(res);
         window.location.reload();

@@ -1,0 +1,14 @@
+
+.topContainer{
+    display:  flex;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 60px;
+    padding: 5px 50px;
+    justify-content: space-between;
+    border: 2px solid green;    
+}
+
+
+

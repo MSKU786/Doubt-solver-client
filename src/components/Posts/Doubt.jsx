@@ -7,7 +7,7 @@ function Doubt({doubt}) {
     const {user} = useContext(AuthContext);
     const [doubtUser, setDoubtUser] = useState(null);
     const [solveClick, setSolveClick] = useState(false);
-    
+    let solveTime = Date.now();
     const answer  = useRef();
     useEffect(() => {
         const fetchUser = async() => {
@@ -26,6 +26,7 @@ function Doubt({doubt}) {
                 }
                 setSolveClick(!solveClick);
                 const res = await axios.put(`/doubt/accepted/${user._id}`,accepterId)
+                solveTime = Date.now();
                 console.log(solveClick);
                 console.log(res);
                 
@@ -50,14 +51,18 @@ function Doubt({doubt}) {
     }
     const submitHandler = async(e) => {
         e.preventDefault();
+        let stringTime = ((Date.now()-solveTime)/1000).toString();
+        console.log(solveTime);
+          
         const newAns = {
             userId : user._id,
             desc : answer.current.value,
-            isAnswer: true
+            isAnswer: true,
+            time: stringTime
         }
         try{
-            const res = await axios.post(`/comment/create/${doubt._id}`, newAns)
-            console.log(res);
+            const res = await axios.post(`/comment/create/${doubt._id}`, newAns);
+            
             window.location.reload();
         }catch(err){
             console.log(err);
@@ -66,7 +71,7 @@ function Doubt({doubt}) {
     const AnswerForm = () => {
         return (
             <>
-            <Post post={doubt}/>
+            <Post post={doubt} comment={false}/>
             <form className="shareBottom" onSubmit={submitHandler}>
             <div className="shareTop">
               <h4>Answer </h4>

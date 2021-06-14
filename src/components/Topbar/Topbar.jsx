@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/auth';
 import { Link } from "react-router-dom";
+import "./topbar.css"
 function Topbar(props) {
    
     const {user} = useContext(AuthContext);
@@ -11,19 +12,19 @@ function Topbar(props) {
     const StudentBar = () => {
         return (
             <>
-                <ul>
+                <div className="topbarContent">
                     <Link to="/">
-                        <li>
+                        <div className="topbarLeftContent">
                             Home
-                        </li>
+                        </div>
                     </Link>
                     <Link to="/student">
-                        <li > 
+                        <div className="topbarRightContent">
                             Raise Doubt
-                        </li>
+                        </div>
                     </Link>
                    
-                </ul>
+                </div>
             </>
         )
     }
@@ -31,18 +32,18 @@ function Topbar(props) {
     const TABar = () => {
         return (
             <>
-                <ul>
+                <div className="topbarContent">
                     <Link to="/">
-                        <li>
+                        <div className="topbarLeftContent">
                             Home
-                        </li>
+                        </div>
                     </Link>
                     <Link to="/solve">
-                        <li>
+                        <div className="topbarRightContent">
                             Solve Doubt
-                        </li>
+                        </div>
                     </Link>
-                </ul>
+                </div>
             </>
         )
     }
@@ -50,18 +51,18 @@ function Topbar(props) {
     const TeacherBar = () => {
         return (
             <>
-                <ul>
+                <div className="topbarContent">
                     <Link to="/">
-                        <li>
+                        <div className="topbarLeftContent">
                             Home
-                        </li>
+                        </div>
                     </Link>
                     <Link to="/dashboard">
-                        <li>
+                        <div className="topbarRightContent">
                             Dashboard
-                        </li>
+                        </div>
                     </Link>
-                </ul>
+                </div>
             </>
         )
     }
