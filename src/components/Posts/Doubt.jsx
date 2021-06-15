@@ -3,6 +3,9 @@ import { AuthContext } from "../../context/auth";
 import axios from "axios";
 import Post from "./Post";
 import "./homeposts.css"
+import { format } from "timeago.js";
+
+
 function Doubt({doubt}) {
     const {user} = useContext(AuthContext);
     const [doubtUser, setDoubtUser] = useState(null);
@@ -44,7 +47,8 @@ function Doubt({doubt}) {
                 id : doubt._id
             }
             setSolveClick(!solveClick);
-            const res = await axios.put(`/doubt/escalated/${user._id}`,accepterId)
+            const res = await axios.put(`/doubt/escalated/${user._id}`,accepterId);
+            window.location.reload();
         }catch(err)
         {
             console.log(err);
@@ -89,7 +93,7 @@ function Doubt({doubt}) {
         <div className="doubtContainer">
             <div className="postTopbar">
                 <span className="userName"> {doubtUser?.username} </span>
-
+                <span className="postDate">{format(doubt.createdAt)}</span>
             </div>
             <div className="postTitle">
                 <p> {doubt.title} </p>

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/auth';
 import { Link } from "react-router-dom";
-import AdbIcon from '@material-ui/icons/Adb';
+import BugReportIcon from '@material-ui/icons/BugReport';
 import "./topbar.css"
 function Topbar(props) {
    
@@ -71,8 +71,8 @@ function Topbar(props) {
    
             <div className="topContainer">
                 <div className="leftSide">
-                <div className="leftSideLogo">
-                        <AdbIcon className="logo"/>
+                    <div className="leftSideLogo">
+                        <BugReportIcon style={{fontSize: "40"}}/>
                     </div>
                     <div className="leftSideList">
                         {(() => {

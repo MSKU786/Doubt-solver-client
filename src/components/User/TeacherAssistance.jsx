@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from "../../context/auth";
 import Doubt from "../Posts/Doubt";
 import axios from "axios";
+import "./users.css"
+
 function TeacherAssistance(props) {
     const {user } = useContext(AuthContext);
     const [doubt, setDoubts] = useState([]);

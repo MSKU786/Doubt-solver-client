@@ -13,14 +13,17 @@
     justify-content: center;
     align-items: center;
     padding: 5px 10px;
-    box-shadow: rgba(1, 6, 12, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    background-color: #c5CBE3;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(1, 1, 2, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
 .shareForm{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    
+
     width: 80%;
 }
 
@@ -88,6 +91,7 @@
       justify-content: center;
       align-content: center;
       padding: 20px 5px;
+      background-color: #c5CBE3;
   }
 
   .solveDoubtPost{
@@ -95,9 +99,13 @@
       margin-top: 20px;
       border-radius: 20px;
       justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: column;
       align-items: center;
       width: 80%;
-      padding: 40px 15px
+      padding: 40px 15px;
+      background-color: #c5CBE3;
+  
   }
 
 .averageContainer{
