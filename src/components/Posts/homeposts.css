@@ -6,11 +6,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 .postWrapper {
   display: flex;
-  width: 90%;
+  width: 70%;
   border: 2px solid green;
   margin-top: 50px;
   flex-wrap: wrap;
@@ -21,16 +22,30 @@
   display: flex;
   justify-content: space-between;
   border: 2px solid rgb(83, 16, 192);
+  padding: 5px 20px;
   align-items: center;
   height: 50px;
 }
 
-.postTitle {
-  display: block;
-  width: 95%;
-  justify-content: center;
+.titleHead{
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+}
+.postTitle {
+  display: flex;
+  width: 80%;
   padding: 10px 20px;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.resolvedTag{
+  display: flex;
+  right: 0;
+  width: 10%;
+  color: green;
 }
 
 .postDescription {
@@ -39,13 +54,18 @@
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .postComments {
   display: flex;
-  width: 95%;
+  width: 100%;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 .commentSection {
@@ -56,21 +76,55 @@
   flex-wrap: wrap;
 }
 
+.commentHeading{
+  display: block;
+  width: 100%;
+  border-top: 2px solid black;
+  padding: 20px 30px 10px 35px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .commentTopbar {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: start;
+  font-size: 16px;
   align-items: center;
-  border: 2px solid black;
+
   padding: 3px 20px;
 }
 
 .userName {
   display: inline-block;
   padding: 5px;
+
+  font-size: 18px;
+  margin-right: 10px;
+  font-weight: bold;
 }
 
 .commentMain {
   display: flex;
   width: 100%;
+  box-shadow: rgba(17, 3, 3, 0.24) 0px 5px 8px;
+}
+
+.shareComment{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding: 20px 10px;
+}
+
+.shareInput{
+  width: 650px;
+  height: 30px;
+  display: flex;
+}
+
+.shareButton{
+  border: none;
+  font-size: 16px;
+  padding: 5px 10px;
 }

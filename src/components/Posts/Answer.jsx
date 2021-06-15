@@ -1,18 +1,21 @@
+import { format } from "timeago.js"
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import "./homeposts.css";
-import { format } from "timeago.js"
 
-function Comment({comment}) {
+
+function Answer({answer}) {
     const [content, setContent] = useState(null);
     const [userId, setUserId] = useState(null);
+    //const [time, setTime] = useState(null);
     const [commentUser, setCommentUser] = useState(null);
     useEffect(()=> {
         try{
             const fetchComment = async() => {
-                const res = await axios.get("/comment/get/"+comment);
-                setContent(res.data.desc);
-                setUserId(res.data.userId);
+                const res = await axios.get("/comment/get/"+answer);
+                // setContent(res.data.desc);
+                // setUserId(res.data.userId);
+                console.log(res.data);
+                //setTime(res.data.createdAt);
                 if(res.data.userId)
                 {
                     const fetchUser = async () => {
@@ -27,23 +30,19 @@ function Comment({comment}) {
         {
             console.log(err);
         }
-    },[comment]);
-
-   
+    },[answer]);
     return (
-        <div className="commentSection">
-                <div className="commentTopbar">
-                    <span className="userName">{commentUser?.username}</span>
-                    <span className="postDate">{content}</span>
-                </div>
-
-                <div className="commentMain">
-                    {
-                        content
-                    }
-                </div>
+        <div className="answerContainer">
+            <div>
+                <span> {commentUser}</span>
+                <span></span>
+            </div>
+            <div className="answerContent">
+                <b>Answer</b>
+                    {content}
+            </div>
         </div>
     );
 }
 
-export default Comment;
+export default Answer;
