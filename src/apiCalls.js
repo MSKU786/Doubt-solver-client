@@ -9,5 +9,6 @@ export const loginCall = async (userCredential, dispatch) => {
     dispatch({ type: "LOGIN_SUCCESS", payload: res.data.user});
   } catch (err) {
     dispatch({ type: "LOGIN_FAILURE", payload: err });
+    window.alert("Email or Password doesn't match")
   }
 };

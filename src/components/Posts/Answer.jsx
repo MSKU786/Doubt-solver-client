@@ -30,6 +30,7 @@ function Answer({answer}) {
         }catch(err)
         {
             console.log(err);
+            window.alert("Internal server error");
         }
     },[answer]);
     return (

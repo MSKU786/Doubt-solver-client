@@ -24,15 +24,22 @@ function Post({post}) {
         const res = await axios.post(`/comment/create/${post._id}`, newComment);
         console.log(res);
         window.location.reload();
-      } catch (err) {}
+      } catch (err) {
+            window.alert("Internal Server Error");
+      }
     };
     const [postUser, setPostUser] = useState(null);
     useEffect(() => {
-        const fetchUser = async() => {
-            const res = await axios.get("/auth/user/"+post?.userId);
-            setPostUser(res.data);
+        try{
+            const fetchUser = async() => {
+                const res = await axios.get("/auth/user/"+post?.userId);
+                setPostUser(res.data);
+            }
+            fetchUser();
+        }catch(err){
+            window.alert("Internal Server Error");
         }
-        fetchUser();
+        
     },[post?.userId]);
 
 

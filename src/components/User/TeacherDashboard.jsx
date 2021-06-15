@@ -5,20 +5,25 @@ function TeacherDashboard(props) {
     const [teachers, setTeachers]  = useState([]);
     const [posts, setPosts] = useState([]);
     useEffect(() => {
-        const fetchteachers = async() => {
-            const res = await axios.get('/auth/only/TA');
-            setTeachers(res.data);
-            
-       
+        try{
+            const fetchteachers = async() => {
+                const res = await axios.get('/auth/only/TA');
+                setTeachers(res.data);
+                
+           
+            }
+            fetchteachers();
+            const fetchPost = async() => {
+                const res = await axios.get('/doubt/getAll');  
+                setPosts(res.data); 
+               // totalDoubt = res.data.length;
+                
+           }
+           fetchPost();
+        }catch(err){
+            window.alert("Internal Server Error");
         }
-        fetchteachers();
-        const fetchPost = async() => {
-            const res = await axios.get('/doubt/getAll');  
-            setPosts(res.data); 
-           // totalDoubt = res.data.length;
-            
-       }
-       fetchPost();
+      
     },[])
    
    

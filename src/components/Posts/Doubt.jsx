@@ -14,11 +14,15 @@ function Doubt({doubt}) {
     const answer  = useRef();
     
     useEffect(() => {
-        const fetchUser = async() => {
-            const res = await axios.get("/auth/user/"+doubt?.userId);
-            setDoubtUser(res.data);
+        try{
+            const fetchUser = async() => {
+                const res = await axios.get("/auth/user/"+doubt?.userId);
+                setDoubtUser(res.data);
+            }
+            fetchUser();
+        }catch(err){
+            window.alert("Internal server error");
         }
-        fetchUser();
     },[doubt?.userId]);
 
     const solveHandler = async() => {
@@ -38,6 +42,7 @@ function Doubt({doubt}) {
         }catch(err)
         {
             console.log(err);
+            window.alert("Internal server error");
         }
     }
 
@@ -52,6 +57,7 @@ function Doubt({doubt}) {
         }catch(err)
         {
             console.log(err);
+            window.alert("Internal server error");
         }
     }
     const submitHandler = async(e) => {
@@ -71,6 +77,7 @@ function Doubt({doubt}) {
             window.location.reload();
         }catch(err){
             console.log(err);
+            window.alert("Internal server error");
         }
     }
     const AnswerForm = () => {

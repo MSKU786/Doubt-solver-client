@@ -25,7 +25,7 @@ function Comment({comment}) {
             fetchComment();
         }catch(err)
         {
-            console.log(err);
+            window.alert("Internal server error");
         }
     },[comment]);
 

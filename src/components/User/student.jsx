@@ -27,7 +27,9 @@ function Student(props) {
         console.log(newDoubt);
         await axios.post("/doubt/create", newDoubt);
         window.location.reload();
-      } catch (err) {}
+      } catch (err) {
+        window.alert("Internal Sever Error")
+      }
     };
   
     return (

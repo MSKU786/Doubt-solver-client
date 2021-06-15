@@ -9,13 +9,18 @@ function TeacherAssistance(props) {
     const [doubt, setDoubts] = useState([]);
 
     useEffect(()=> {
-        const fetchPost = async() => {
-            console.log(user);
-            const res = await axios("/doubt/getRemaining/"+user._id);
-            console.log(res);
-            setDoubts(res.data);
+        try{
+            const fetchPost = async() => {
+                console.log(user);
+                const res = await axios("/doubt/getRemaining/"+user._id);
+                console.log(res);
+                setDoubts(res.data);
+            }
+            fetchPost();
+        }catch(err){
+            window.alert("Internal Server Error");
         }
-        fetchPost();
+        
     },[user._id])
     return (
         <div className = "solveDoubtContainer">
