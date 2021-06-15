@@ -2,7 +2,7 @@ import { useContext, useRef, useState, useEffect } from "react";
 import { AuthContext } from "../../context/auth";
 import axios from "axios";
 import Post from "./Post";
-
+import "./homeposts.css"
 function Doubt({doubt}) {
     const {user} = useContext(AuthContext);
     const [doubtUser, setDoubtUser] = useState(null);
@@ -71,7 +71,6 @@ function Doubt({doubt}) {
     const AnswerForm = () => {
         return (
             <>
-            <Post post={doubt} comment={false}/>
             <form className="shareBottom" onSubmit={submitHandler}>
             <div className="shareTop">
               <h4>Answer </h4>
@@ -81,21 +80,21 @@ function Doubt({doubt}) {
               Answer
             </button>
           </form>
-          <button onClick={handleEscalate}> Escalate</button>
+          <button className="escalateButton" onClick={handleEscalate}> Escalate</button>
           </>
         )
     }
     return (
-        <div>
-            <div>
-                <h4> {doubtUser?.username} </h4>
+        <div className="doubtContainer">
+            <div className="postTopbar">
+                <span className="userName"> {doubtUser?.username} </span>
+
             </div>
-            <div>
-                <h3> {doubt.title} </h3>
+            <div className="postTitle">
+                <p> {doubt.title} </p>
             </div>
-            <div>{doubt.desc} 
-                <button onClick={solveHandler}>Solve</button>
-         
+            <div className="postDescription">{doubt.desc} 
+                <button className="answerSolve" onClick={solveHandler}>Solve</button>
                 {
                    
                      solveClick && 

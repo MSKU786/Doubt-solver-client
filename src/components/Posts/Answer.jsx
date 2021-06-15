@@ -34,12 +34,13 @@ function Answer({answer}) {
     },[answer]);
     return (
         <div className="answerContainer">
-            <div>
-                <span> {commentUser}</span>
-                <span>{format(time)}</span>
+            
+            <div className="answerTop">
+                <div className="answerTopName"> {commentUser}</div >
+                <div className="answerTopTime">{format(time)}</div >
             </div>
             <div className="answerContent">
-                <b>Answer</b>
+            <h3>Answer</h3>
                     {content}
             </div>
         </div>

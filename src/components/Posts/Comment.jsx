@@ -33,15 +33,9 @@ function Comment({comment}) {
     return (
         <div className="commentSection">
                 <div className="commentTopbar">
-                    <span className="userName">{commentUser?.username}</span>
+                    <span className="userName">{commentUser?.username}:</span>
                     <span className="postDate">{content}</span>
                 </div>
-
-                <div className="commentMain">
-                    {
-                        content
-                        }
-                    </div>
         </div>
     );
 }

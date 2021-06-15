@@ -9,7 +9,7 @@ import {
   import { useContext, useRef, useState } from "react";
   import { AuthContext } from "../../context/auth";
   import axios from "axios";
-
+import "./users.css"
 
 function Student(props) {
     const { user } = useContext(AuthContext);
@@ -34,13 +34,15 @@ function Student(props) {
       <div className="share">
         <div className="shareWrapper">
           
-          <hr className="shareHr" />
-          <form className="shareBottom" onSubmit={submitHandler}>
+          
+          <form className="shareForm" onSubmit={submitHandler}>
             <div className="shareTop">
               <h4> Title </h4>
-              <input ref={title} type="text" className="titleBar" />
+              <input ref={title} 
+
+                type="text" className="titleBar" />
               <h4> Description</h4>
-              <input
+              <textarea
                 placeholder={"What's your doubt " + user.username + "?"}
                 className="shareInput"
                 ref={desc}

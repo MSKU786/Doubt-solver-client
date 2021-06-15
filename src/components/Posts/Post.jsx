@@ -71,7 +71,7 @@ function Post({post}) {
                     (
                     <>
                       <div className="commentHeading">
-                        {post.comments.length} Comment
+                        {post.comments.length} &nbsp; Comment
                         </div>
                         {post.comments.map((c)=> (
                             <Comment key={c._id} comment={c} />
@@ -80,11 +80,11 @@ function Post({post}) {
                             <div className="shareTop">
                                 <input
                                     placeholder="Comment " 
-                                    className="shareInput"
+                                    className="shareCommentInput"
                                     ref={desc}
                                 />
                             </div>
-                            <button className="shareButton" type="submit">
+                            <button type="submit" className="shareCommentButton">
                             Comment
                             </button>
                         </form>

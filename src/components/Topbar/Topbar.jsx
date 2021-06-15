@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/auth';
 import { Link } from "react-router-dom";
+import AdbIcon from '@material-ui/icons/Adb';
 import "./topbar.css"
 function Topbar(props) {
    
@@ -13,13 +14,13 @@ function Topbar(props) {
         return (
             <>
                 <div className="topbarContent">
-                    <Link to="/">
+                    <Link to="/" style={{color:"white"}}>
                         <div className="topbarLeftContent">
                             Home
                         </div>
                     </Link>
-                    <Link to="/student">
-                        <div className="topbarRightContent">
+                    <Link to="/student" style={{color:"white"}}>
+                        <div className="topbarRightContent" style={{color:"white"}}>
                             Raise Doubt
                         </div>
                     </Link>
@@ -33,12 +34,12 @@ function Topbar(props) {
         return (
             <>
                 <div className="topbarContent">
-                    <Link to="/">
+                    <Link to="/" style={{color:"white"}}>
                         <div className="topbarLeftContent">
                             Home
                         </div>
                     </Link>
-                    <Link to="/solve">
+                    <Link to="/solve" style={{color:"white"}}>
                         <div className="topbarRightContent">
                             Solve Doubt
                         </div>
@@ -51,13 +52,13 @@ function Topbar(props) {
     const TeacherBar = () => {
         return (
             <>
-                <div className="topbarContent">
+                <div className="topbarContent" style={{color:"white"}}>
                     <Link to="/">
                         <div className="topbarLeftContent">
                             Home
                         </div>
                     </Link>
-                    <Link to="/dashboard">
+                    <Link to="/dashboard" style={{color:"white"}}>
                         <div className="topbarRightContent">
                             Dashboard
                         </div>
@@ -70,8 +71,8 @@ function Topbar(props) {
    
             <div className="topContainer">
                 <div className="leftSide">
-                    <div className="leftSideLogo">
-                        Coding Ninja
+                <div className="leftSideLogo">
+                        <AdbIcon className="logo"/>
                     </div>
                     <div className="leftSideList">
                         {(() => {

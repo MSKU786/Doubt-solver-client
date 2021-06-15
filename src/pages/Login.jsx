@@ -4,7 +4,7 @@ import { loginCall } from "../apiCalls";
 import { AuthContext } from "../context/auth";
 import { CircularProgress } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-
+import "./login.css"
 export default function Login() {
 const email = useRef();
 const password = useRef();
@@ -24,9 +24,9 @@ const { isFetching, dispatch } = useContext(AuthContext);
     <div className="login">
       <div className="loginWrapper">
         <div className="loginLeft">
-          <h3 className="loginLogo">Lamasocial</h3>
+          <h3 className="loginLogo">Mr Solver :)</h3>
           <span className="loginDesc">
-            Connect with friends and the world around you on Lamasocial.
+            Welcome let's solve your doubt
           </span>
         </div>
         <div className="loginRight">

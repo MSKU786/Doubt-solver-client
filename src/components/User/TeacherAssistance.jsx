@@ -16,17 +16,16 @@ function TeacherAssistance(props) {
         fetchPost();
     },[user._id])
     return (
-        <div>
-            <div>
+        <div className = "solveDoubtContainer">
+           <div className="solveDoubtPost">
                 {
                     doubt.map((d) => (
                         <Doubt key={d._id} doubt={d}></Doubt>
                     ))
                 }
-            </div>
-            <div>
-
-            </div>
+           </div>
+                
+           
         </div>
     );
 }

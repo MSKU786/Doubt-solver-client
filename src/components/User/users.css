@@ -1,0 +1,101 @@
+.share{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 30px 40px;
+    margin-top: 55px;
+}
+
+.shareWrapper{
+    display: flex;
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    box-shadow: rgba(1, 6, 12, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.shareForm{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+    width: 80%;
+}
+
+.shareTop{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.shareTop>h4{
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.titleBar{
+    height: 40px;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 100%;
+}
+.titleBar:focus{
+    outline: none;
+}
+.shareInput{
+    min-height: 150px;
+    font-size: 18px;
+    align-items: flex-start;
+    border-radius: 15px;
+    padding: 4px 5px;
+    border: 2px solid black;
+    color: black;
+    width: 100%;
+}
+
+  
+.shareInput:focus {
+    outline: none;
+  }
+  
+
+  .shareButton{
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 5px 20px;
+      width: 40%;
+      align-self: center;
+      color: white;
+      background-color: #4056A1;
+      border: #66FCF1;
+      height: 50px;
+      border-radius: 10px;
+    
+  }
+
+  .solveDoubtContainer{
+      display: flex;
+      margin-top: 55px;
+      width: 100%;
+      justify-content: center;
+      align-content: center;
+      padding: 20px;
+  }
+
+  .solveDoubtPost{
+      display: flex;
+      margin-top: 20px;
+      border-radius: 20px;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      padding: 40px 20px
+  }

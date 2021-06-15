@@ -9,7 +9,8 @@
     justify-content: space-between;
     border: 2px solid green;    
     z-index: 10;
-    background-color: rgb(7, 237, 245);
+    background-color: #4056A1;
+    color: white;
 }
 
 
@@ -24,9 +25,13 @@
 .leftSideLogo{
     display: flex;
     width: 40%;
-
     justify-content: center;
     align-items: center;
+}
+
+.logo{
+ 
+    font-size: 50px;
 }
 
 .leftSideList{
