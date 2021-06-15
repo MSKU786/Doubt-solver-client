@@ -9,6 +9,7 @@ function Doubt({doubt}) {
     const [solveClick, setSolveClick] = useState(false);
     let solveTime = Date.now();
     const answer  = useRef();
+    
     useEffect(() => {
         const fetchUser = async() => {
             const res = await axios.get("/auth/user/"+doubt?.userId);
