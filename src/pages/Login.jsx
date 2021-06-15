@@ -30,7 +30,7 @@ const { isFetching, dispatch } = useContext(AuthContext);
           </span>
         </div>
         <div className="loginRight">
-          <form className="loginBox" onSubmit={handleClick}>
+          <form className="signupBox" onSubmit={handleClick}>
             <input
               placeholder="Email"
               type="email"

@@ -67,15 +67,16 @@ function Post({post}) {
             </div>
             <div className = "postComments">
               
-                    { user.usertype==="STUDENT" &&
-                    (
-                    <>
+                    
                       <div className="commentHeading">
                         {post.comments.length} &nbsp; Comment
                         </div>
                         {post.comments.map((c)=> (
                             <Comment key={c._id} comment={c} />
                         ))}
+                        { user.usertype==="STUDENT" &&
+                        (
+                        <>
                         <form className="shareComment" onSubmit={commentHandler}>
                             <div className="shareTop">
                                 <input

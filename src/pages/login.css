@@ -44,7 +44,7 @@
 }
 
 .signupBox{
-    height: 500px;
+    height: 300px;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
@@ -99,4 +99,17 @@
 
 }
 
-.loginRegistration
+.loginRegisterButton{
+    width: 60%;
+    align-items: center;
+    align-self: center;
+    height: 50px;
+    border-radius: 10px;
+    border : none;
+    background-color: #42b72a;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 30px;
+}

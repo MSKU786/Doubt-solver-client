@@ -12,23 +12,41 @@ function TeacherDashboard(props) {
         fetchteachers();
     },[])
     return (
-        <div>
-            <h2>Report of TA</h2>
-            <div className="reportContainer">
+        <div className = "solveDoubtContainer">
+            <div className="teacherContainer">
+                <div className="averageContainer">
+                    <div className="averageNo">
 
-                <div>
-                    {
-                        teachers.map((t)=> (
-                            <>
-                            <h4>{t.username}</h4>
-                            <h4>{t.accepted?.length} Accepted</h4>
-                            <h5>{t.escalated?.length} Escalted</h5>
-                            <h4>{t.accepted?.length- t.escalated?.length} total ANswer</h4>
-                            </>
-                        ))
-                    }
+                    </div>
+                    <div className="averageNo">
+
+                    </div>
+                    <div className="averageNo">
+
+                    </div>
+                    <div className="averageNo">
+
+                    </div>
                 </div>
+                <h2>Report of TA</h2>
+                <div className="reportContainer">
+
+                    <div className = "reportList">
+                        {
+                            teachers.map((t)=> (
+                                <>
+                                <span className="listItem">{t.username}</span>
+                                <span className="listItem">{t.accepted?.length} Accepted</span>
+                                <span className="listItem">{t.escalated?.length} Escalted</span>
+                                <span>{t.accepted?.length- t.escalated?.length} total ANswer</span>
+                                </>
+                            ))
+                        }
+                    </div>
+                </div>
+            
             </div>
+            
         </div>
     );
 }

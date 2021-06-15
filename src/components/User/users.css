@@ -97,5 +97,45 @@
       justify-content: center;
       align-items: center;
       width: 80%;
-      padding: 40px 20px
+      padding: 40px 15px
   }
+
+.averageContainer{
+    display: flex;
+    width: 80%;
+    padding: 15px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 10px;
+    border: 2px solid green;
+}
+
+.teacherContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.averageNo{
+    width: 23%;
+    height: 200px;
+    border: 2px solid red;
+    margin-left: 10px;
+}
+
+.reportContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reportList{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
