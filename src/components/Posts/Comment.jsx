@@ -40,8 +40,8 @@ function Comment({comment}) {
                 <div className="commentMain">
                     {
                         content
-                    }
-                </div>
+                        }
+                    </div>
         </div>
     );
 }
