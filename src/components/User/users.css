@@ -87,7 +87,7 @@
       width: 100%;
       justify-content: center;
       align-content: center;
-      padding: 20px;
+      padding: 20px 5px;
   }
 
   .solveDoubtPost{
@@ -107,30 +107,49 @@
     flex-wrap: wrap;
     flex-direction: row;
     margin-top: 10px;
-    border: 2px solid green;
 }
 
 .teacherContainer{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 95%;
     flex-wrap: wrap;
     flex-direction: column;
 }
 .averageNo{
     width: 23%;
     height: 200px;
-    border: 2px solid red;
-    margin-left: 10px;
+    box-shadow: rgba(17, 3, 3, 0.24) 2px 5px 8px;
+    margin-left: 20px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #D79922;
+    color: white;
+  
 }
 
+h2{
+    color: #f13C20
+}
+.averageNo>h1{
+    display: flex;
+    padding: 20px;
+}
+
+.averageNo>h3{
+    bottom: 0;
+    padding: 20px;
+
+}
 .reportContainer{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 
@@ -139,31 +158,34 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    background-color:#4056A1 ;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
-
+    padding: 10px;
 }
 
 
 .reportList{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    width: 100%;
-    border: 2px solid red;
+    width: 95%;
+    margin-bottom: 10px;
     padding: 5px 20px;
+    box-shadow: rgba(224, 204, 204, 0.24) 2px 5px 8px;
+    color: white;
 }
 .listItem{
     display: flex;
-    
+    max-width: 30%;
     align-items: center;
     margin: 20px;
 }
 
 .name{
     display: flex;
-    width: 18%;
+    width: 180px;
 
 }
 .reportName{
@@ -171,3 +193,5 @@
     width: 100%;
     justify-content: space-around;
 }
+
+

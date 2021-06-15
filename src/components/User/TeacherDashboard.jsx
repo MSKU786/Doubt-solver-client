@@ -46,17 +46,30 @@ function TeacherDashboard(props) {
             return (
                 <div className="averageContainer">
                     <div className="averageNo">
-                            {posts.length}
+                        <h1>
+                        {posts.length}
+                        </h1>
+                            
+                            <h3>Doubts Asked</h3>
                     </div>
                 
                     <div className="averageNo">
-                            {totalEscalated}
+                        <h1>{totalEscalated}</h1>
+                            
+                            <h3>Doubts Escalated</h3>
                     </div>
                     <div className="averageNo">
+                            <h1>
                             {totalAccepted-totalEscalated}
+                            </h1>
+                            <h3>Doubts Resolved</h3>
                     </div>
                     <div className="averageNo">
-                            {totalAverageTime/(totalAccepted-totalEscalated)}sec
+                        <h1>
+                        {totalAverageTime/(totalAccepted-totalEscalated)}sec
+                        </h1>
+                           
+                            <h3>Avg. Doubt Resolution Time</h3>
                     </div>
                 </div>
             )

@@ -17,7 +17,8 @@ const { isFetching, dispatch } = useContext(AuthContext);
       { email: email.current.value, password: password.current.value },
       dispatch
     );
-    history.push("/")
+    history.push("/"); 
+    
   };
 
   return (

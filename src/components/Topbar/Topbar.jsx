@@ -52,8 +52,8 @@ function Topbar(props) {
     const TeacherBar = () => {
         return (
             <>
-                <div className="topbarContent" style={{color:"white"}}>
-                    <Link to="/">
+                <div className="topbarContent" >
+                    <Link to="/" style={{color:"white"}}>
                         <div className="topbarLeftContent">
                             Home
                         </div>
