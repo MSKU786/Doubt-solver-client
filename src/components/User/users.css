@@ -112,7 +112,7 @@
 
 .teacherContainer{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 90%;
     flex-wrap: wrap;
@@ -133,9 +133,41 @@
     align-items: center;
 }
 
+
+
+.unorderList{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+
+
 .reportList{
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    width: 100%;
+    border: 2px solid red;
+    padding: 5px 20px;
+}
+.listItem{
+    display: flex;
+    
+    align-items: center;
+    margin: 20px;
+}
+
+.name{
+    display: flex;
+    width: 18%;
+
+}
+.reportName{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
 }
