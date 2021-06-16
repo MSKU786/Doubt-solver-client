@@ -10,12 +10,9 @@ import {
   Switch,
   Route,
   Redirect,
-  useRouteMatch,
 } from "react-router-dom";
 import { AuthContext } from "./context/auth";
 import { useContext } from "react";
-
-
 
 export default function App() {
   const token= localStorage.token ?  true : false;

@@ -85,7 +85,7 @@ function TeacherDashboard(props) {
             time.map((t)=> (
                 total+=parseFloat(t)
             ))
-            total = total/(time.length==0? 1: time.length);
+            total = total/(time.length===0? 1: time.length);
             return (
                 <span className="listItem"> {total} &nbsp; Average Doubt Activity Time</span>
             )

@@ -1,8 +1,8 @@
 import React from 'react';
 
-  import { useContext, useRef} from "react";
-  import { AuthContext } from "../../context/auth";
-  import axios from "axios";
+import { useContext, useRef} from "react";
+import { AuthContext } from "../../context/auth";
+import axios from "axios";
 import "./users.css"
 import serverId from "../../reducers/api";
 
