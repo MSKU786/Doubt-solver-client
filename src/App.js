@@ -28,13 +28,13 @@ export default function App() {
           {token ? <Redirect to="/" /> : <Register />}
         </Route>
         <Route path="/student">
-          {token && user?.usertype==='STUDENT'? <CreateDoubt /> :  <Redirect to="/" /> } 
+          {token && user.usertype==='STUDENT'? <CreateDoubt /> :  <Redirect to="/" /> } 
         </Route>
         <Route path="/solve">
-          {token && user?.usertype==='TA'? <SolveDoubt /> :  <Redirect to="/" /> }
+          {token && user.usertype==='TA'? <SolveDoubt /> :  <Redirect to="/" /> }
         </Route>
         <Route path="/dashboard">
-          {token && user?.usertype==='TEACHER'?  <Dashboard />:  <Redirect to="/" /> }
+          {token && user.usertype==='TEACHER'?  <Dashboard />:  <Redirect to="/" /> }
         </Route>
       </Switch>
     </Router>
