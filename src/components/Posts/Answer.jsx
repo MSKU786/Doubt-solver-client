@@ -41,7 +41,7 @@ function Answer({answer}) {
                 <div className="answerTopTime">{format(time)}</div >
             </div>
             <div className="answerContent">
-            <h3>Answer</h3>
+            <h3>Answer :</h3>
                     {content}
             </div>
         </div>

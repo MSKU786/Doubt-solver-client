@@ -81,7 +81,7 @@
       border: #66FCF1;
       height: 50px;
       border-radius: 10px;
-    
+      cursor: pointer;
   }
 
   .solveDoubtContainer{
