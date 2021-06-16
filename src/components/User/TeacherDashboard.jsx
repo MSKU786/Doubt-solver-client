@@ -47,7 +47,8 @@ function TeacherDashboard(props) {
                     return parseFloat(a) + parseFloat(b)
                 }))/t.answerTime.length
                
-            )))
+            )));
+            let avgTimee = (totalAverageTime/(totalAccepted-totalEscalated)).toFixed(2);
             return (
                 <div className="averageContainer">
                     <div className="averageNo">
@@ -71,7 +72,7 @@ function TeacherDashboard(props) {
                     </div>
                     <div className="averageNo">
                         <h1>
-                        {totalAverageTime/(totalAccepted-totalEscalated)}sec
+                        {avgTimee}sec
                         </h1>
                            
                             <h3>Avg. Doubt Resolution Time</h3>
@@ -86,6 +87,7 @@ function TeacherDashboard(props) {
                 total+=parseFloat(t)
             ))
             total = total/(time.length===0? 1: time.length);
+            total = total.toFixed(2);
             return (
                 <span className="listItem"> {total} &nbsp; Average Doubt Activity Time</span>
             )
