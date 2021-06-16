@@ -1,4 +1,5 @@
-import { useContext, useRef, useState, useEffect, useHistory } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/auth";
 import axios from "axios";
 import serverId from "../../reducers/api";
@@ -7,17 +8,18 @@ import { format } from "timeago.js";
 
 
 function Doubt({doubt}) {
+    let history = useHistory();
     const {user} = useContext(AuthContext);
     const [doubtUser, setDoubtUser] = useState(null);
     const [solveClick, setSolveClick] = useState(false);
     let solveTime = Date.now();
     const answer  = useRef();
-    const history = useHistory();
+    
     
     useEffect(() => {
         try{
             const fetchUser = async() => {
-                const res = await axios.get(`${serverId}/auth/user/`+doubt?.userId);
+                const res = await axios.get(`${serverId}/auth/user/${doubt?.userId}`);
                 setDoubtUser(res.data);
             }
             fetchUser();
@@ -36,7 +38,6 @@ function Doubt({doubt}) {
                 setSolveClick(!solveClick);
                 const res = await axios.put(`${serverId}/doubt/accepted/${user._id}`,accepterId)
                 solveTime = Date.now();
-          
                 
             }
         }catch(err)
@@ -53,7 +54,7 @@ function Doubt({doubt}) {
             }
             setSolveClick(!solveClick);
             const res = await axios.put(`${serverId}/doubt/escalated/${user._id}`,accepterId);
-            window.location.reload();
+            history.push('/');
         }catch(err)
         {
             console.log(err);
@@ -73,8 +74,7 @@ function Doubt({doubt}) {
         }
         try{
             const res = await axios.post(`${serverId}/comment/create/${doubt._id}`, newAns);
-            
-            history.push('/')
+            history.push('/');
         }catch(err){
             console.log(err);
             window.alert("Internal server error");
