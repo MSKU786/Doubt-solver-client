@@ -7,11 +7,8 @@ function Topbar(props) {
 
     const {user} = useContext(AuthContext);
     const logoutHandler = () => {
-        const deleteToken = async() => {
-            await localStorage.clear();
-        }
-        deleteToken();
-        <Redirect to = "/" />
+   
+        localStorage.clear();
         window.location.reload();
     }
     const StudentBar = () => {
