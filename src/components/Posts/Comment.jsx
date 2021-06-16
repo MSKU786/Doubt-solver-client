@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import "./homeposts.css";
-
+import serverId from "../../reducers/api";
 
 function Comment({comment}) {
     const [content, setContent] = useState(null);
@@ -10,13 +10,13 @@ function Comment({comment}) {
     useEffect(()=> {
         try{
             const fetchComment = async() => {
-                const res = await axios.get("/comment/get/"+comment);
+                const res = await axios.get(serverId+"/comment/get/"+comment);
                 setContent(res.data.desc);
                 setUserId(res.data.userId);
                 if(res.data.userId)
                 {
                     const fetchUser = async () => {
-                        const commenter = await axios.get("/auth/user/"+res.data.userId);
+                        const commenter = await axios.get(serverId+"/auth/user/"+res.data.userId);
                         setCommentUser(commenter.data);
                     }
                     fetchUser();

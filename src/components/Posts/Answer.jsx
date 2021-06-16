@@ -1,7 +1,7 @@
 import { format } from "timeago.js"
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
+import serverId from "../../reducers/api";
 
 function Answer({answer}) {
     const [content, setContent] = useState(null);
@@ -11,7 +11,7 @@ function Answer({answer}) {
     useEffect(()=> {
         try{
             const fetchComment = async() => {
-                const res = await axios.get("/comment/get/"+answer);
+                const res = await axios.get(serverId+"/comment/get/"+answer);
                 setContent(res.data.desc);
                 setUserId(res.data.userId);
                 setTime(res.data.createdAt);
@@ -19,7 +19,7 @@ function Answer({answer}) {
                 if(res.data.userId)
                 {
                     const fetchUser = async () => {
-                        const commenter = await axios.get("/auth/user/"+res.data.userId);
+                        const commenter = await axios.get(serverId+"/auth/user/"+res.data.userId);
                         console.log(commenter.data);
                        setCommentUser(commenter.data.username);
                     }
