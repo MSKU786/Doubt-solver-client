@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/auth';
-import { Link} from "react-router-dom";
+import { Link, Redirect} from "react-router-dom";
 import BugReportIcon from '@material-ui/icons/BugReport';
 import "./topbar.css"
 function Topbar(props) {
@@ -11,6 +11,7 @@ function Topbar(props) {
             await localStorage.clear();
         }
         deleteToken();
+        <Redirect to = "/" />
         window.location.reload();
     }
     const StudentBar = () => {
