@@ -1,4 +1,4 @@
-import { useContext, useRef, useState, useEffect } from "react";
+import { useContext, useRef, useState, useEffect, useHistory } from "react";
 import { AuthContext } from "../../context/auth";
 import axios from "axios";
 import serverId from "../../reducers/api";
@@ -12,6 +12,7 @@ function Doubt({doubt}) {
     const [solveClick, setSolveClick] = useState(false);
     let solveTime = Date.now();
     const answer  = useRef();
+    const history = useHistory();
     
     useEffect(() => {
         try{
@@ -74,7 +75,7 @@ function Doubt({doubt}) {
         try{
             const res = await axios.post(`${serverId}/comment/create/${doubt._id}`, newAns);
             
-            window.location.reload();
+            history.push('/')
         }catch(err){
             console.log(err);
             window.alert("Internal server error");

@@ -13,7 +13,7 @@ function TeacherAssistance(props) {
         try{
             const fetchPost = async() => {
                 
-                const res = await axios(serverId+"/doubt/getRemaining/"+user._id);
+                const res = await axios(`${serverId}/doubt/getRemaining/`+user._id);
                 
                 setDoubts(res.data);
             }

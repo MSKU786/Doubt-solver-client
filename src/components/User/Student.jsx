@@ -5,9 +5,11 @@ import { AuthContext } from "../../context/auth";
 import axios from "axios";
 import "./users.css"
 import serverId from "../../reducers/api";
+import { useHistory } from 'react-router-dom';
 
 function Student(props) {
     const { user } = useContext(AuthContext);
+    const history = useHistory();
     const desc = useRef();
     const title = useRef();
     const submitHandler = async (e) => {
@@ -19,8 +21,8 @@ function Student(props) {
       };
       
       try {
-        await axios.post(serverId+"/doubt/create", newDoubt);
-        window.location.reload();
+        const res = await axios.post(`${serverId}/doubt/create`, newDoubt);
+        history.push("/");
       } catch (err) {
         window.alert("Internal Sever Error")
       }
