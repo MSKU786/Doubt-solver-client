@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/auth';
-import { Link, Redirect} from "react-router-dom";
+import { Link, Redirect, useHistory} from "react-router-dom";
 import BugReportIcon from '@material-ui/icons/BugReport';
 import "./topbar.css"
 function Topbar(props) {
-
+    const history = useHistory();
     const {user} = useContext(AuthContext);
     const logoutHandler = () => {
-   
         localStorage.clear();
-        window.location.reload();
+        history.push('/');
+         window.location.reload();
     }
     const StudentBar = () => {
         return (
