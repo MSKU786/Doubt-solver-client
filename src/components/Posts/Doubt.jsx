@@ -17,7 +17,7 @@ function Doubt({doubt}) {
     useEffect(() => {
         try{
             const fetchUser = async() => {
-                const res = await axios.get(serverId+"/auth/user/"+doubt?.userId);
+                const res = await axios.get(`${serverId}/auth/user/`+doubt?.userId);
                 setDoubtUser(res.data);
             }
             fetchUser();
@@ -36,8 +36,7 @@ function Doubt({doubt}) {
                 setSolveClick(!solveClick);
                 const res = await axios.put(`${serverId}/doubt/accepted/${user._id}`,accepterId)
                 solveTime = Date.now();
-                console.log(solveClick);
-                console.log(res);
+          
                 
             }
         }catch(err)
