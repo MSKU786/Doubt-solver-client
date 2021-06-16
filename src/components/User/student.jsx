@@ -1,15 +1,10 @@
 import React from 'react';
-import {
-    PermMedia,
-    Label,
-    Room,
-    EmojiEmotions,
-    Cancel,
-  } from "@material-ui/icons";
-  import { useContext, useRef, useState } from "react";
+
+  import { useContext, useRef} from "react";
   import { AuthContext } from "../../context/auth";
   import axios from "axios";
 import "./users.css"
+import serverId from "../../reducers/api";
 
 function Student(props) {
     const { user } = useContext(AuthContext);
@@ -24,8 +19,7 @@ function Student(props) {
       };
       
       try {
-        console.log(newDoubt);
-        await axios.post("/doubt/create", newDoubt);
+        await axios.post(serverId+"/doubt/create", newDoubt);
         window.location.reload();
       } catch (err) {
         window.alert("Internal Sever Error")

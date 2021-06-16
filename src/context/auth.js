@@ -1,5 +1,6 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import AuthReducer from "../reducers/auth";
+import serverId from "../apiCalls";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 
@@ -23,7 +24,7 @@ export const AuthContextProvider = ({ children }) => {
   }
   useEffect(()=>{
       const fetchUser  = async () => {
-          const res = await axios.get(`/auth/user/${decode?.id}`)
+          const res = await axios.get(`https://doubtsolverbackend.herokuapp.com/api/auth/user/${decode?.id}`)
           setUser(res.data);
       }
       fetchUser();    

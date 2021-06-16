@@ -1,7 +1,7 @@
 import { useContext, useRef, useState, useEffect } from "react";
 import { AuthContext } from "../../context/auth";
 import axios from "axios";
-import Post from "./Post";
+
 import "./homeposts.css"
 import { format } from "timeago.js";
 

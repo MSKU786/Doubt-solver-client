@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-
+import serverId from "../../reducers/api";
 function TeacherDashboard(props) {
     const [teachers, setTeachers]  = useState([]);
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         try{
             const fetchteachers = async() => {
-                const res = await axios.get('/auth/only/TA');
+                const res = await axios.get(serverId+'/auth/only/TA');
                 setTeachers(res.data);
                 
            
             }
             fetchteachers();
             const fetchPost = async() => {
-                const res = await axios.get('/doubt/getAll');  
+                const res = await axios.get(serverId+'/doubt/getAll');  
                 setPosts(res.data); 
                // totalDoubt = res.data.length;
                 

@@ -3,7 +3,7 @@ import { useRef } from "react";
 //import "./register.css";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-
+import serverId from "../reducers/api";
 export default function Register() {
   const username = useRef();
   const email = useRef();
@@ -25,7 +25,7 @@ export default function Register() {
       };
       try {
         console.log(user);
-        await axios.post("/auth/register", user);
+        await axios.post(serverId+ "/auth/register", user);
         history.push("/login");
       } catch (err) {
         console.log(err);

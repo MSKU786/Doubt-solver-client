@@ -19,7 +19,6 @@ import { useContext } from "react";
 
 export default function App() {
   const token= localStorage.token ?  true : false;
-  const {isFetching} = useContext(AuthContext);
   const {user} = useContext(AuthContext);
   return (
     <Router>

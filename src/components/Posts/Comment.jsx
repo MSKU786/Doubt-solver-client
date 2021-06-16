@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import "./homeposts.css";
-import { format } from "timeago.js"
+
 
 function Comment({comment}) {
     const [content, setContent] = useState(null);

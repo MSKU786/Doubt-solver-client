@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from "../../context/auth";
 import Doubt from "../Posts/Doubt";
 import axios from "axios";
+import serverId from "../../reducers/api";
 import "./users.css"
 
 function TeacherAssistance(props) {
@@ -11,9 +12,9 @@ function TeacherAssistance(props) {
     useEffect(()=> {
         try{
             const fetchPost = async() => {
-                console.log(user);
-                const res = await axios("/doubt/getRemaining/"+user._id);
-                console.log(res);
+                
+                const res = await axios(serverId+"/doubt/getRemaining/"+user._id);
+                
                 setDoubts(res.data);
             }
             fetchPost();

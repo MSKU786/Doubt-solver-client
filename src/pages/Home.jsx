@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../context/auth';
+import React from 'react';
+
 import HomePosts from "../components/Posts/HomePosts"
 import Topbar from '../components/Topbar/Topbar';
-import Student from '../components/User/Student';
+
 function Home(props) 
 {
     return (

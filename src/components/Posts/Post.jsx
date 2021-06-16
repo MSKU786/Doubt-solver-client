@@ -6,7 +6,7 @@ import "./homeposts.css";
 import Comment from "./Comment"
 import Answer from "./Answer"
 import { format } from "timeago.js"
-
+import serverId from "../../reducers/api";
 function Post({post}) {
     const { user } = useContext(AuthContext);
     //console.log("this is a comment", comment);
@@ -21,7 +21,7 @@ function Post({post}) {
       
       try {
         //console.log(newComment);
-        const res = await axios.post(`/comment/create/${post._id}`, newComment);
+        const res = await axios.post(`${serverId}/comment/create/${post._id}`, newComment);
         console.log(res);
         window.location.reload();
       } catch (err) {
@@ -32,7 +32,7 @@ function Post({post}) {
     useEffect(() => {
         try{
             const fetchUser = async() => {
-                const res = await axios.get("/auth/user/"+post?.userId);
+                const res = await axios.get(serverId+"/auth/user/"+post?.userId);
                 setPostUser(res.data);
             }
             fetchUser();
