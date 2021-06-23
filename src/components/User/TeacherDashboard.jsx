@@ -4,17 +4,24 @@ import serverId from "../../reducers/api";
 function TeacherDashboard(props) {
     const [teachers, setTeachers]  = useState([]);
     const [posts, setPosts] = useState([]);
+    const authAxios = axios.create({
+        baseURL: serverId,
+        headers:{
+            Authorization: `Bearer ${localStorage.token}`
+        }
+    })
+    
     useEffect(() => {
         try{
             const fetchteachers = async() => {
-                const res = await axios.get(serverId+'/auth/only/TA');
+                const res = await authAxios.get(serverId+'/auth/only/TA');
                 setTeachers(res.data);
                 
            
             }
             fetchteachers();
             const fetchPost = async() => {
-                const res = await axios.get(serverId+'/doubt/getAll');  
+                const res = await authAxios.get(serverId+'/doubt/getAll');  
                 setPosts(res.data); 
                // totalDoubt = res.data.length;
                 

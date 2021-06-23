@@ -11,6 +11,13 @@ function Post({post}) {
     const { user } = useContext(AuthContext);
     //console.log("this is a comment", comment);
     const desc = useRef();
+    const authAxios = axios.create({
+        baseURL: serverId,
+        headers:{
+            Authorization: `Bearer ${localStorage.token}`
+        }
+    })
+    
     const commentHandler = async (e) => {
       e.preventDefault();
       const newComment = {
@@ -21,7 +28,7 @@ function Post({post}) {
       
       try {
         //console.log(newComment);
-        const res = await axios.post(`${serverId}/comment/create/${post._id}`, newComment);
+        const res = await authAxios.post(`${serverId}/comment/create/${post._id}`, newComment);
         console.log(res);
         window.location.reload();
       } catch (err) {
@@ -32,7 +39,7 @@ function Post({post}) {
     useEffect(() => {
         try{
             const fetchUser = async() => {
-                const res = await axios.get(serverId+"/auth/user/"+post?.userId);
+                const res = await authAxios.get(serverId+"/auth/user/"+post?.userId);
                 setPostUser(res.data);
             }
             fetchUser();

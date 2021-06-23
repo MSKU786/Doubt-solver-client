@@ -8,10 +8,17 @@ function Answer({answer}) {
     const [userId, setUserId] = useState(null);
     const [time, setTime] = useState(null);
     const [commentUser, setCommentUser] = useState(null);
+    const authAxios = axios.create({
+        baseURL: serverId,
+        headers:{
+            Authorization: `Bearer ${localStorage.token}`
+        }
+    })
+    
     useEffect(()=> {
         try{
             const fetchComment = async() => {
-                const res = await axios.get(serverId+"/comment/get/"+answer);
+                const res = await authAxios.get(serverId+"/comment/get/"+answer);
                 setContent(res.data.desc);
                 setUserId(res.data.userId);
                 setTime(res.data.createdAt);

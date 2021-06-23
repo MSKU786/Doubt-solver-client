@@ -12,6 +12,13 @@ function Student(props) {
     const history = useHistory();
     const desc = useRef();
     const title = useRef();
+    const authAxios = axios.create({
+      baseURL: serverId,
+      headers:{
+          Authorization: `Bearer ${localStorage.token}`
+      }
+  })
+  
     const submitHandler = async (e) => {
       e.preventDefault();
       const newDoubt = {
@@ -21,7 +28,7 @@ function Student(props) {
       };
       
       try {
-        const res = await axios.post(`${serverId}/doubt/create`, newDoubt);
+        const res = await authAxios.post(`${serverId}/doubt/create`, newDoubt);
         history.push("/");
       } catch (err) {
         window.alert("Internal Sever Error")

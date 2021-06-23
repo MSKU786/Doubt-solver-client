@@ -14,12 +14,17 @@ function Doubt({doubt}) {
     const [solveClick, setSolveClick] = useState(false);
     let solveTime = Date.now();
     const answer  = useRef();
-    
+    const authAxios = axios.create({
+        baseURL: serverId,
+        headers:{
+            Authorization: `Bearer ${localStorage.token}`
+        }
+    })
     
     useEffect(() => {
         try{
             const fetchUser = async() => {
-                const res = await axios.get(`${serverId}/auth/user/${doubt?.userId}`);
+                const res = await authAxios.get(`${serverId}/auth/user/${doubt?.userId}`);
                 setDoubtUser(res.data);
             }
             fetchUser();
@@ -36,7 +41,7 @@ function Doubt({doubt}) {
                     id : doubt._id
                 }
                 setSolveClick(!solveClick);
-                const res = await axios.put(`${serverId}/doubt/accepted/${user._id}`,accepterId)
+                const res = await authAxios.put(`${serverId}/doubt/accepted/${user._id}`,accepterId)
                 solveTime = Date.now();
                 
             }
@@ -53,7 +58,7 @@ function Doubt({doubt}) {
                 id : doubt._id
             }
             setSolveClick(!solveClick);
-            const res = await axios.put(`${serverId}/doubt/escalated/${user._id}`,accepterId);
+            const res = await authAxios.put(`${serverId}/doubt/escalated/${user._id}`,accepterId);
             history.push('/');
         }catch(err)
         {
@@ -73,7 +78,7 @@ function Doubt({doubt}) {
             time: stringTime
         }
         try{
-            const res = await axios.post(`${serverId}/comment/create/${doubt._id}`, newAns);
+            const res = await authAxios.post(`${serverId}/comment/create/${doubt._id}`, newAns);
             history.push('/');
         }catch(err){
             console.log(err);

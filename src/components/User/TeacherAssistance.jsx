@@ -8,11 +8,17 @@ import "./users.css"
 function TeacherAssistance(props) {
     const {user } = useContext(AuthContext);
     const [doubt, setDoubts] = useState([]);
-
+    const authAxios = axios.create({
+        baseURL: serverId,
+        headers:{
+            Authorization: `Bearer ${localStorage.token}`
+        }
+    })
+    
     useEffect(()=> {
         try{
             const fetchPost = async() => {         
-                const res = await axios(`${serverId}/doubt/getRemaining/${user._id}`);
+                const res = await authAxios(`${serverId}/doubt/getRemaining/${user._id}`);
                 setDoubts(res.data);
             }
             fetchPost();
