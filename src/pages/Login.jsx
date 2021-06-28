@@ -5,6 +5,7 @@ import { AuthContext } from "../context/auth";
 import { CircularProgress } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import GoogleLogin from "react-google-login"
 import "./login.css"
 
 export default function Login() {
@@ -22,6 +23,14 @@ const { isFetching, dispatch } = useContext(AuthContext);
  
     
   };
+
+  const responseSuccessGoogle = (res) => {
+
+  }
+
+  const responseFailureGoogle = (res) => {
+
+  }
 
   return (
     <div className="login">
@@ -65,7 +74,14 @@ const { isFetching, dispatch } = useContext(AuthContext);
                 )}
               </button>
             </Link>
-       
+            <h2>Login Via Google</h2>
+            <GoogleLogin
+              clientId="363086331701-j72med5b4r7l2ed4059lhohudv4ggp9i.apps.googleusercontent.com"
+              buttonText="Login"
+              onSuccess={responseSuccessGoogle}
+              onFailure={responseFailureGoogle}
+              cookiePolicy={'single_host_origin'}
+            />
           </form>
         </div>
       </div>
