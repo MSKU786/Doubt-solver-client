@@ -39,7 +39,7 @@ const { isFetching, dispatch } = useContext(AuthContext);
 
   const responseFailureGoogle =(res) => {
       console.log("failure", res);
-    
+      window.alert("Some Error ocuured")
   }
 
   return (
