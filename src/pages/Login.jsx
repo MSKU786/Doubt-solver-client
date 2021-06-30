@@ -25,15 +25,21 @@ const { isFetching, dispatch } = useContext(AuthContext);
     
   };
 
-  const responseSuccessGoogle = (res) => {
+  const responseSuccessGoogle =  async(res) => {
       console.log(res);
-  
+      try{
+          const backend = await axios.post("https://doubtsolverbackend.herokuapp.com/api/auth/googleLogin", {tokenId : res.tokenId });
+          localStorage.setItem('token', backend.data.token);
+          dispatch({ type: "LOGIN_SUCCESS", payload: backend.data.user});
+        } catch (err) {
+          dispatch({ type: "LOGIN_FAILURE", payload: err });
+          window.alert("Email or Password doesn't match")
+        }
   }
 
-  const responseFailureGoogle = async(res) => {
+  const responseFailureGoogle =(res) => {
       console.log("failure", res);
-      const backend = await axios.post("/auth/googleLogin", {tokenId : res.tokenId });
-      console.log("this is backedn",backend);
+    
   }
 
   return (
