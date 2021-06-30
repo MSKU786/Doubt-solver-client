@@ -84,16 +84,18 @@ const { isFetching, dispatch } = useContext(AuthContext);
                 )}
               </button>
             </Link>
-            
+            <div className="googleLogin">
+
+                <GoogleLogin
+                  clientId="363086331701-j72med5b4r7l2ed4059lhohudv4ggp9i.apps.googleusercontent.com"
+                  buttonText="Login or SignUp Via google"
+                  onSuccess={responseSuccessGoogle}
+                  onFailure={responseFailureGoogle}
+                  cookiePolicy={'single_host_origin'}
+                />
+            </div>
           </form>
-          <h2>Login Via Google</h2>
-            <GoogleLogin
-              clientId="363086331701-j72med5b4r7l2ed4059lhohudv4ggp9i.apps.googleusercontent.com"
-              buttonText="Login"
-              onSuccess={responseSuccessGoogle}
-              onFailure={responseFailureGoogle}
-              cookiePolicy={'single_host_origin'}
-            />
+          
         </div>
       </div>
     </div>
