@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import GoogleLogin from "react-google-login"
 import "./login.css"
+import axios from "axios";
 
 export default function Login() {
 const email = useRef();
@@ -25,11 +26,14 @@ const { isFetching, dispatch } = useContext(AuthContext);
   };
 
   const responseSuccessGoogle = (res) => {
-
+      console.log(res);
+  
   }
 
-  const responseFailureGoogle = (res) => {
-
+  const responseFailureGoogle = async(res) => {
+      console.log("failure", res);
+      const backend = await axios.post("/auth/googleLogin", {tokenId : res.tokenId });
+      console.log("this is backedn",backend);
   }
 
   return (
@@ -74,7 +78,9 @@ const { isFetching, dispatch } = useContext(AuthContext);
                 )}
               </button>
             </Link>
-            <h2>Login Via Google</h2>
+            
+          </form>
+          <h2>Login Via Google</h2>
             <GoogleLogin
               clientId="363086331701-j72med5b4r7l2ed4059lhohudv4ggp9i.apps.googleusercontent.com"
               buttonText="Login"
@@ -82,7 +88,6 @@ const { isFetching, dispatch } = useContext(AuthContext);
               onFailure={responseFailureGoogle}
               cookiePolicy={'single_host_origin'}
             />
-          </form>
         </div>
       </div>
     </div>
